@@ -49,7 +49,9 @@ public class Library implements Subject{
 
     @Override
     public void notifyObservers() {
-
+        for (Observer observer : observers) {
+            observer.update(updateBookTitle);
+        }
     }
 }
 
