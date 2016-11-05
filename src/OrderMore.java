@@ -1,3 +1,4 @@
 
-public class OrderMore {
+public class OrderMore extends Observer{
+
 }
