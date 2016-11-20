@@ -27,4 +27,24 @@ public class BasicBook extends Book {
     public void setNoOfCopies(int noOfCopies) {
         this.noOfCopies = noOfCopies;
     }
+
+    @Override
+    public String getAuthor() {
+        return author;
+    }
+
+    @Override
+    public String getPublisher() {
+        return publisher;
+    }
+
+    @Override
+    public double getCost() {
+        return cost;
+    }
+
+    @Override
+    public long getIsbn() {
+        return isbn;
+    }
 }
