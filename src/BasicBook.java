@@ -1,5 +1,5 @@
 
-public class BasicBook extends Book {
+public class BasicBook implements Book {
     private String title;
     private String author;
     private String publisher;

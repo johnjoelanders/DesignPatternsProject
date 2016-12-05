@@ -1,9 +1,9 @@
 
-abstract class BookDecorator extends Book {
+abstract class BookDecorator implements Book {
     protected Book book;
 
     public BookDecorator(Book newbook) {
-        this.book = newbook;
+        book = newbook;
     }
 
     @Override
