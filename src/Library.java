@@ -37,6 +37,13 @@ public class Library implements Subject {
         }
     }
 
+    public void addToLibrary(BasicBook bookFromPublisher){
+        books.add(bookFromPublisher);
+        System.out.println("Added book to library");
+        for(BasicBook item : books){
+            System.out.println(item.getTitle());
+        }
+    }
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);

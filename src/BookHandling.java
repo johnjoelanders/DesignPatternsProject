@@ -1,5 +1,5 @@
 
 public interface BookHandling {
-    void buyBooks();
+    void buyBooks(PublisherStock publisherStock,Library library);
     void sellBooks(Library library);
 }

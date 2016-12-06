@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         boolean isShutDown = false;
         Library library = new Library();
+        PublisherStock publisherStock = new PublisherStock();
         new OrderMore(library);
         Authentication authentication = new Authentication();
         String userDetails = authentication.login();
@@ -21,9 +22,7 @@ public class Main {
 
             switch (choice) {
                 case "buy":
-                    System.out.println("Buying books");
-                    bookProxy.buyBooks();
-
+                    bookProxy.buyBooks(publisherStock,library);
                     break;
                 case "sell":
                     System.out.println("Selling books");
