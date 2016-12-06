@@ -8,16 +8,16 @@ public class Library implements Subject {
     private String updateBookTitle;
 
     public Library() {
-        Book book = new Hardback(new Pictures(new BasicBook("Test", "J.K. Rowling", "Scholastic", 0.2, 143955493L, 1)));
+        Book book = new Hardback(new Pictures(new BasicBook("test", "j.k rowling", "scholastic", 0.2, 143955493L,3)));
         books2.add(book);
 
         BasicBook book1 = new BasicBook(book.getTitle(), book.getAuthor(), book.getPublisher(), book.getCost(), book.getIsbn(), book.getNoOfCopies());
         books.add(book1);
     }
 
-    public void buyBook(String title) {
+    public void sellBook(String title) {
         for (BasicBook book : books) {
-            if (book.getTitle() == title) {
+            if (title.equals(book.getTitle())) {
                 book.setNoOfCopies(book.getNoOfCopies() - 1);
                 if (book.getNoOfCopies() <= 2) {
                     updateBookTitle = title;
@@ -27,14 +27,12 @@ public class Library implements Subject {
         }
     }
 
-    public void addBook(String title) {
+    public void getMoreCopies(String title) {
         for (BasicBook book : books) {
-            if (book.getTitle() == title) {
-                int numOfBooks1 = book.getNoOfCopies();
-                System.out.println("Number of books before : " + numOfBooks1);
+            if (title.equals(book.getTitle())) {
+                System.out.println("Number of books before : " + book.getNoOfCopies());
                 book.setNoOfCopies(book.getNoOfCopies() + 1);
-                int numOfBooks = book.getNoOfCopies();
-                System.out.println("Number of books after: " + numOfBooks);
+                System.out.println("Number of books after: " + book.getNoOfCopies());
             }
         }
     }
