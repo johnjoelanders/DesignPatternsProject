@@ -5,20 +5,17 @@ public class Main {
     public static void main(String[] args) {
         boolean isShutDown = false;
         Library library = new Library();
+        EmployeeFactory employeeFactory = new EmployeeFactory();
         PublisherStock publisherStock = new PublisherStock();
         new OrderMore(library);
         Authentication authentication = new Authentication();
-        String userDetails = authentication.login();
+        Employee employeeLoggedIn = authentication.login();
         String choice;
         Scanner scanner = new Scanner(System.in);
         while (!isShutDown) {
-            System.out.println("Would you like to buy a book(buy),sell a book(sell),logout(logout),shut down(shutdown)");
+            System.out.println("Would you like to buy a book(buy),sell a book(sell),logout(logout),shut down(shutdown),create new employee(newEmp)");
             choice = scanner.next();
-            String[] splitString = userDetails.split("-");
-            String username = splitString[0];
-            String password = splitString[1];
-            Employee loggedInEmployee = new Employee(username, password);
-            BookProxy bookProxy = new BookProxy(loggedInEmployee);
+            BookProxy bookProxy = new BookProxy(employeeLoggedIn);
 
             switch (choice) {
                 case "buy":
@@ -28,9 +25,12 @@ public class Main {
                     System.out.println("Selling books");
                     bookProxy.sellBooks(library);
                     break;
+                case "newEmp":
+                    bookProxy.addEmployee(employeeFactory,authentication);
+                    break;
                 case "logout":
                     authentication.logoff();
-                    userDetails = authentication.login();
+                    employeeLoggedIn = authentication.login();
                     break;
                 case "shutdown":
                     isShutDown = true;

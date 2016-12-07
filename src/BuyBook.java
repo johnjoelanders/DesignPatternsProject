@@ -1,7 +1,6 @@
 
 public class BuyBook implements OrderFromPublisher{
     PublisherStock pbStock;
-    Library library;
 
     public BuyBook(PublisherStock pbStock){
         this.pbStock = pbStock;
