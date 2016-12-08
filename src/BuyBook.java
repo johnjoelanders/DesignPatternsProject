@@ -1,10 +1,11 @@
 
-public class BuyBook implements OrderFromPublisher{
-    PublisherStock pbStock;
+class BuyBook implements OrderFromPublisher {
+    private PublisherStock pbStock;
 
-    public BuyBook(PublisherStock pbStock){
+    BuyBook(PublisherStock pbStock) {
         this.pbStock = pbStock;
     }
+
     @Override
     public void order(Library library) {
         BasicBook bookFromPublisher = pbStock.buy();

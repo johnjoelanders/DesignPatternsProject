@@ -1,4 +1,4 @@
 
-public interface OrderFromPublisher {
-    void order(Library libaray);
+interface OrderFromPublisher {
+    void order(Library library);
 }

@@ -1,25 +1,22 @@
 import java.util.Scanner;
 
-public class EmployeeFactory {
-    String name;
-    String lastname;
-    String username;
-    String password;
-    Double wagesPerWeek = 0.0;
-    String type = "";
-    Scanner scanner = new Scanner(System.in);
-    ValidateDetails validateDetailsPassword = new ValidateDetails(new ValidatePassword());
-    ValidateDetails validateDetailsUsername = new ValidateDetails(new ValidateUsername());
-    boolean isValidPassword = false;
-    boolean isValidUsername = false;
+class EmployeeFactory {
+    private String name,lastName,username,password;
+    private Double wagesPerWeek = 0.0;
+    private String type = "";
+    private Scanner scanner = new Scanner(System.in);
+    private ValidateDetails validateDetailsPassword = new ValidateDetails(new ValidatePassword());
+    private ValidateDetails validateDetailsUsername = new ValidateDetails(new ValidateUsername());
+    private boolean isValidPassword = false;
+    private boolean isValidUsername = false;
 
-    public Employee makeEmployee(String employee) {
+    Employee makeEmployee(String employee) {
         switch (employee) {
             case "M":
                 System.out.println("Enter your Managers name: ");
                 name = scanner.next();
                 System.out.println("Enter your Managers last name: ");
-                lastname = scanner.next();
+                lastName = scanner.next();
 
                 while (!isValidUsername) {
                     System.out.println("Enter your Managers username: ");
@@ -33,12 +30,12 @@ public class EmployeeFactory {
                     isValidPassword = validateDetailsPassword.validatePassword(password);
                 }
                 isValidPassword = false;
-                return new Manager(name, lastname, username, password, wagesPerWeek, type);
+                return new Manager(name, lastName, username, password, wagesPerWeek, type);
             case "S":
                 System.out.println("Enter your Store Assistants name: ");
                 name = scanner.next();
                 System.out.println("Enter your Store Assistants last name: ");
-                lastname = scanner.next();
+                lastName = scanner.next();
 
                 while (!isValidUsername) {
                     System.out.println("Enter your Store Assistants username: ");
@@ -53,7 +50,7 @@ public class EmployeeFactory {
                     isValidPassword = validateDetailsPassword.validatePassword(password);
                 }
                 isValidPassword = false;
-                return new StoreAssistant(name, lastname, username, password, wagesPerWeek, type);
+                return new StoreAssistant(name, lastName, username, password, wagesPerWeek, type);
             default:
                 return null;
         }

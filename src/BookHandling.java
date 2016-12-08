@@ -1,8 +1,9 @@
-import java.util.Iterator;
+interface BookHandling {
+    void buyBooks(PublisherStock publisherStock, Library library);
 
-public interface BookHandling {
-    void buyBooks(PublisherStock publisherStock,Library library);
     void sellBooks(Library library);
+
     void displayBooks();
-    void addEmployee(EmployeeFactory employeeFactory,Authentication authentication);
+
+    void addEmployee(EmployeeFactory employeeFactory, Authentication authentication);
 }

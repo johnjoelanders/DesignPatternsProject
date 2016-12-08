@@ -1,9 +1,8 @@
-
 abstract class BookDecorator implements Book {
     protected Book book;
 
-    public BookDecorator(Book newbook) {
-        book = newbook;
+    BookDecorator(Book newBook) {
+        book = newBook;
     }
 
     @Override

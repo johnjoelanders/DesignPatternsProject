@@ -1,4 +1,5 @@
-public abstract class Observer {
-    protected Library library;
+abstract class Observer {
+    Library library;
+
     public abstract void update(String title);
 }

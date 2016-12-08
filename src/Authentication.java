@@ -2,16 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Authentication {
+class Authentication {
 
-    List<Employee> employees = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
-    String username, password;
-    boolean isLoggedInAsEmployee = false;
-    boolean isLoggedInAsManager = false;
-    Employee empLoggedIn;
+    private List<Employee> employees = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
+    private String username, password;
+    private boolean isLoggedInAsEmployee = false;
+    private boolean isLoggedInAsManager = false;
+    private Employee empLoggedIn;
 
-    public Authentication() {
+    Authentication() {
 
         Manager manager = new Manager("manager", "manager", "manager", "manager", 200.00, "M");
         StoreAssistant storeAssistant = new StoreAssistant("test", "test", "storeAssistant", "storeAssistant", 200.00, "S");
@@ -20,7 +20,7 @@ public class Authentication {
         employees.add(storeAssistant);
     }
 
-    public Employee login() {
+    Employee login() {
         while (!isLoggedInAsEmployee && !isLoggedInAsManager) {
             System.out.println("Enter your username: ");
             username = scanner.next();
@@ -32,25 +32,27 @@ public class Authentication {
                         System.out.println("Welcome Employee");
                         empLoggedIn = employee;
                         isLoggedInAsEmployee = true;
-                    } if (employee.getTypeOfEmployee().equalsIgnoreCase("M")) {
+                    }
+                    if (employee.getTypeOfEmployee().equalsIgnoreCase("M")) {
                         System.out.println("Welcome Manager");
                         empLoggedIn = employee;
                         isLoggedInAsManager = true;
                     }
                 }
             }
-            if(!isLoggedInAsEmployee && !isLoggedInAsManager){
+            if (!isLoggedInAsEmployee && !isLoggedInAsManager) {
                 System.out.println("Incorrect Details");
             }
         }
         return empLoggedIn;
     }
 
-    public void logoff() {
+    void logoff() {
         isLoggedInAsEmployee = false;
         isLoggedInAsManager = false;
     }
-    public void addToEmployes(Employee employee){
+
+    void addToEmployees(Employee employee) {
         employees.add(employee);
         System.out.println("Added to employees");
     }

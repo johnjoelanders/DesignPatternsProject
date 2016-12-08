@@ -2,24 +2,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Library implements Subject,BookIterator {
+class Library implements Subject, BookIterator {
     private List<Observer> observers = new ArrayList<>();
-    public List<BasicBook> books = new ArrayList<>();
-    public List<Book> books2 = new ArrayList<>();
+    private List<BasicBook> books = new ArrayList<>();
+    private List<Book> books2 = new ArrayList<>();
     private String updateBookTitle;
     private static Library libraryInstance = new Library();
+
     private Library() {
-        Book book = new Hardback(new Pictures(new BasicBook("test", "j.k rowling", "scholastic", 0.2, 143955493L,3)));
+        Book book = new Hardback(new Pictures(new NumberOfPages(new BasicBook("test", "j.k rowling", "scholastic", 0.2, 143955493L, 3))));
         books2.add(book);
 
         BasicBook book1 = new BasicBook(book.getTitle(), book.getAuthor(), book.getPublisher(), book.getCost(), book.getIsbn(), book.getNoOfCopies());
         books.add(book1);
     }
-    public static Library getLibraryinstance(){
+
+    static Library getLibraryInstance() {
         return libraryInstance;
     }
 
-    public void sellBook(String title) {
+    void sellBook(String title) {
         for (BasicBook book : books) {
             if (title.equals(book.getTitle())) {
                 book.setNoOfCopies(book.getNoOfCopies() - 1);
@@ -31,7 +33,7 @@ public class Library implements Subject,BookIterator {
         }
     }
 
-    public void getMoreCopies(String title) {
+    void getMoreCopies(String title) {
         for (BasicBook book : books) {
             if (title.equals(book.getTitle())) {
                 System.out.println("Number of books before : " + book.getNoOfCopies());
@@ -41,13 +43,14 @@ public class Library implements Subject,BookIterator {
         }
     }
 
-    public void addToLibrary(BasicBook bookFromPublisher){
+    void addToLibrary(BasicBook bookFromPublisher) {
         books.add(bookFromPublisher);
         System.out.println("Added book to library");
-        for(BasicBook item : books){
+        for (BasicBook item : books) {
             System.out.println(item.getTitle());
         }
     }
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);

@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Buyer {
-    private List<OrderFromPublisher> orderList = new ArrayList<OrderFromPublisher>();
+class Buyer {
+    private List<OrderFromPublisher> orderList = new ArrayList<>();
 
-    public void takeOrder(OrderFromPublisher orderFromPublisher){
+    void takeOrder(OrderFromPublisher orderFromPublisher) {
         orderList.add(orderFromPublisher);
     }
 
-    public void placeOrders(Library library){
+    void placeOrders(Library library) {
 
         for (OrderFromPublisher orderFromPublisher : orderList) {
             orderFromPublisher.order(library);

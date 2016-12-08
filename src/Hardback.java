@@ -1,10 +1,10 @@
 
-public class Hardback extends BookDecorator {
-    public Hardback(Book book) {
+class Hardback extends BookDecorator {
+    Hardback(Book book) {
         super(book);
     }
 
-    public double getCost(){
-        return book.getCost()+ 12.00;
+    public double getCost() {
+        return book.getCost() + 12.00;
     }
 }

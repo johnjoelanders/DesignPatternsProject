@@ -1,4 +1,3 @@
-
-public interface ValidatorStrategy {
+interface ValidatorStrategy {
     Boolean validate(String characters);
 }

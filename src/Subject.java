@@ -1,4 +1,4 @@
-public interface Subject {
+interface Subject {
     void registerObserver(Observer observer);
 
     void notifyObservers();

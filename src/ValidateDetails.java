@@ -1,13 +1,15 @@
-public class ValidateDetails {
-    public ValidatorStrategy validatorStrategy;
+class ValidateDetails {
+    private ValidatorStrategy validatorStrategy;
 
-    public ValidateDetails(ValidatorStrategy validatorStrategy){
+    ValidateDetails(ValidatorStrategy validatorStrategy) {
         this.validatorStrategy = validatorStrategy;
     }
-    public boolean validatePassword(String characters){
+
+    boolean validatePassword(String characters) {
         return validatorStrategy.validate(characters);
     }
-    public boolean validateUsername(String characters){
+
+    boolean validateUsername(String characters) {
         return validatorStrategy.validate(characters);
     }
 }

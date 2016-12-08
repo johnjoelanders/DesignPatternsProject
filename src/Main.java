@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean isShutDown = false;
-        Library library = Library.getLibraryinstance();
+        Library library = Library.getLibraryInstance();
         EmployeeFactory employeeFactory = new EmployeeFactory();
         PublisherStock publisherStock = new PublisherStock();
         new OrderMore(library);
@@ -15,11 +15,11 @@ public class Main {
         while (!isShutDown) {
             System.out.println("Would you like to buy a book(buy),sell a book(sell),show books(showBooks),logout(logout),shut down(shutdown),create new employee(newEmp)");
             choice = scanner.next();
-            BookProxy bookProxy = new BookProxy(employeeLoggedIn,library);
+            BookProxy bookProxy = new BookProxy(employeeLoggedIn, library);
 
             switch (choice) {
                 case "buy":
-                    bookProxy.buyBooks(publisherStock,library);
+                    bookProxy.buyBooks(publisherStock, library);
                     break;
                 case "sell":
                     System.out.println("Selling books");
@@ -29,7 +29,7 @@ public class Main {
                     bookProxy.displayBooks();
                     break;
                 case "newEmp":
-                    bookProxy.addEmployee(employeeFactory,authentication);
+                    bookProxy.addEmployee(employeeFactory, authentication);
                     break;
                 case "logout":
                     authentication.logoff();

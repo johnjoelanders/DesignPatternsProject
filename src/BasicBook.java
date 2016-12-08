@@ -1,5 +1,4 @@
-
-public class BasicBook implements Book {
+class BasicBook implements Book {
     private String title;
     private String author;
     private String publisher;
@@ -7,7 +6,7 @@ public class BasicBook implements Book {
     private long isbn;
     private int noOfCopies;
 
-    public BasicBook(String title, String author, String publisher,double cost, long isbn, int noOfCopies) {
+    BasicBook(String title, String author, String publisher, double cost, long isbn, int noOfCopies) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -24,7 +23,7 @@ public class BasicBook implements Book {
         return noOfCopies;
     }
 
-    public void setNoOfCopies(int noOfCopies) {
+    void setNoOfCopies(int noOfCopies) {
         this.noOfCopies = noOfCopies;
     }
 

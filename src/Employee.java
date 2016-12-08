@@ -1,12 +1,8 @@
-public abstract class Employee {
-    String username;
-    String password;
-    String name;
-    String lastName;
-    double wagesPerWeek;
-    String typeOfEmployee;
+abstract class Employee {
+    private String username,password,name,lastName,typeOfEmployee;
+    private double wagesPerWeek;
 
-    public Employee(String username, String password, String name, String lastName, double wagesPerWeek,String typeOfEmployee) {
+    Employee(String username, String password, String name, String lastName, double wagesPerWeek, String typeOfEmployee) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -15,16 +11,24 @@ public abstract class Employee {
         this.typeOfEmployee = typeOfEmployee;
     }
 
-    public String getUsername(){return username;}
-    public String getPassword(){return password;}
-    public Double getWagesPerWeek(){return wagesPerWeek;}
-    public String getTypeOfEmployee() {return typeOfEmployee;}
+    String getUsername() {
+        return username;
+    }
 
-    public void setWagesPerWeek(double wagesPerWeek) {
+    String getPassword() {
+        return password;
+    }
+
+
+    String getTypeOfEmployee() {
+        return typeOfEmployee;
+    }
+
+    void setWagesPerWeek(double wagesPerWeek) {
         this.wagesPerWeek = wagesPerWeek;
     }
 
-    public void setTypeOfEmployee(String typeOfEmployee) {
+    void setTypeOfEmployee(String typeOfEmployee) {
         this.typeOfEmployee = typeOfEmployee;
     }
 }

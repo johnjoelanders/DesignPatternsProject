@@ -1,14 +1,14 @@
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class BookProxy implements BookHandling {
-    Employee employee;
-    Scanner scanner = new Scanner(System.in);
-    String title;
-    String typeOfEmployee = "";
-    BookIterator bookIterator;
+class BookProxy implements BookHandling {
+    private Employee employee;
+    private Scanner scanner = new Scanner(System.in);
+    private String title;
+    private String typeOfEmployee = "";
+    private BookIterator bookIterator;
 
-    public BookProxy(Employee employee,BookIterator newLibrary) {
+    BookProxy(Employee employee, BookIterator newLibrary) {
         this.employee = employee;
         this.bookIterator = newLibrary;
     }
@@ -33,7 +33,7 @@ public class BookProxy implements BookHandling {
         try {
             library.sellBook(title);
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Exception thrown"+e);
         }
 
     }
@@ -45,7 +45,7 @@ public class BookProxy implements BookHandling {
         printTheBooks(iteratorBooks);
     }
 
-    public void printTheBooks(Iterator iterator) {
+    private void printTheBooks(Iterator iterator) {
         while (iterator.hasNext()) {
             BasicBook basicBook = (BasicBook) iterator.next();
             System.out.println("Title: " + basicBook.getTitle() + " Cost: " + basicBook.getCost());
@@ -62,7 +62,7 @@ public class BookProxy implements BookHandling {
                 System.out.println("Enter type of employee you wan to create (M) for manager and (S) for store assistant");
                 typeOfEmployee = scanner.next();
             }
-            authentication.addToEmployes(employeeFactory.makeEmployee(typeOfEmployee.toUpperCase()));
+            authentication.addToEmployees(employeeFactory.makeEmployee(typeOfEmployee.toUpperCase()));
 
         } else {
             System.out.println("You cannot buy books ask the manager !!!");
