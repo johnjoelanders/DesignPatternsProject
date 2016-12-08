@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean isShutDown = false;
-        Library library = new Library();
+        Library library = Library.getLibraryinstance();
         EmployeeFactory employeeFactory = new EmployeeFactory();
         PublisherStock publisherStock = new PublisherStock();
         new OrderMore(library);

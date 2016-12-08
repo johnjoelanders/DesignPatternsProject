@@ -3,17 +3,20 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Library implements Subject,BookIterator {
-    private List<Observer> observers = new ArrayList<Observer>();
+    private List<Observer> observers = new ArrayList<>();
     public List<BasicBook> books = new ArrayList<>();
     public List<Book> books2 = new ArrayList<>();
     private String updateBookTitle;
-
-    public Library() {
+    private static Library libraryInstance = new Library();
+    private Library() {
         Book book = new Hardback(new Pictures(new BasicBook("test", "j.k rowling", "scholastic", 0.2, 143955493L,3)));
         books2.add(book);
 
         BasicBook book1 = new BasicBook(book.getTitle(), book.getAuthor(), book.getPublisher(), book.getCost(), book.getIsbn(), book.getNoOfCopies());
         books.add(book1);
+    }
+    public static Library getLibraryinstance(){
+        return libraryInstance;
     }
 
     public void sellBook(String title) {
