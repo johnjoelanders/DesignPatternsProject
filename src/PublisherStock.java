@@ -7,10 +7,10 @@ public class PublisherStock {
     Random random = new Random();
 
     public PublisherStock() {
-        BasicBook b1 = new BasicBook("test1", "j.k rowling", "scholastic", 0.2, 143955493L,3);
-        BasicBook b2 = new BasicBook("test2", "j.k rowling", "scholastic", 0.2, 143955493L,3);
-        BasicBook b3 = new BasicBook("test3", "j.k rowling", "scholastic", 0.2, 143955493L,3);
-        BasicBook b4 = new BasicBook("test4", "j.k rowling", "scholastic", 0.2, 143955493L,3);
+        BasicBook b1 = new BasicBook("test1", "j.k rowling", "scholastic", 20.20, 143955493L,3);
+        BasicBook b2 = new BasicBook("test2", "j.k rowling", "scholastic", 10.25, 143955493L,3);
+        BasicBook b3 = new BasicBook("test3", "j.k rowling", "scholastic", 12.30, 143955493L,3);
+        BasicBook b4 = new BasicBook("test4", "j.k rowling", "scholastic", 13.50, 143955493L,3);
 
         books.add(b1);
         books.add(b2);

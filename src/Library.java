@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Library implements Subject {
+public class Library implements Subject,BookIterator {
     private List<Observer> observers = new ArrayList<Observer>();
     public List<BasicBook> books = new ArrayList<>();
     public List<Book> books2 = new ArrayList<>();
@@ -54,6 +55,11 @@ public class Library implements Subject {
         for (Observer observer : observers) {
             observer.update(updateBookTitle);
         }
+    }
+
+    @Override
+    public Iterator createIterator() {
+        return books.iterator();
     }
 }
 
