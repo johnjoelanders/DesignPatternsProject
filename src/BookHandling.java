@@ -5,7 +5,7 @@ interface BookHandling {
 
     void sellBooks(Library library);
 
-    void displayBooks();
+    void displayBooks(BookIterator bookIterator);
 
     void printTheBooks(Iterator iterator);
 

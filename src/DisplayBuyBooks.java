@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 class DisplayBuyBooks implements BookHandling{
     private String title;
+    private String typeOfEmployee = "";
     private Scanner scanner = new Scanner(System.in);
     @Override
     public void buyBooks(PublisherStock publisherStock, Library library) {
@@ -25,8 +26,10 @@ class DisplayBuyBooks implements BookHandling{
     }
 
     @Override
-    public void displayBooks() {
-
+    public void displayBooks(BookIterator bookIterator) {
+        System.out.println("------Printing Books-------");
+        Iterator iteratorBooks = bookIterator.createIterator();
+        printTheBooks(iteratorBooks);
     }
 
     @Override
@@ -39,6 +42,11 @@ class DisplayBuyBooks implements BookHandling{
 
     @Override
     public void addEmployee(EmployeeFactory employeeFactory, Authentication authentication) {
-
+        System.out.println("Adding employee");
+        while (!typeOfEmployee.equalsIgnoreCase("m") && !typeOfEmployee.equalsIgnoreCase("s")) {
+            System.out.println("Enter type of employee you wan to create (M) for manager and (S) for store assistant");
+            typeOfEmployee = scanner.next();
+        }
+        authentication.addToEmployees(employeeFactory.makeEmployee(typeOfEmployee.toUpperCase()));
     }
 }
