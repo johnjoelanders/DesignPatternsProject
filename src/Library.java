@@ -10,7 +10,7 @@ class Library implements Subject, BookIterator {
     private static Library libraryInstance = new Library();
 
     private Library() {
-        Book book = new Hardback(new Pictures(new NumberOfPages(new BasicBook("test", "j.k rowling", "scholastic", 0.2, 143955493L, 3))));
+        Book book = new Hardback(new Pictures(new NumberOfPages(new BasicBook("test", "j.k rowling", "scholastic", 12.2, 143955493L, 3))));
         books2.add(book);
 
         BasicBook book1 = new BasicBook(book.getTitle(), book.getAuthor(), book.getPublisher(), book.getCost(), book.getIsbn(), book.getNoOfCopies());

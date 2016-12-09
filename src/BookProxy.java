@@ -4,9 +4,9 @@ import java.util.Scanner;
 class BookProxy implements BookHandling {
     private Employee employee;
     private Scanner scanner = new Scanner(System.in);
-    private String title;
     private String typeOfEmployee = "";
     private BookIterator bookIterator;
+    private DisplayBuyBooks displayBuyBooks = new DisplayBuyBooks();
 
     BookProxy(Employee employee, BookIterator newLibrary) {
         this.employee = employee;
@@ -16,11 +16,7 @@ class BookProxy implements BookHandling {
     @Override
     public void buyBooks(PublisherStock publisherStock, Library library) {
         if (employee.getTypeOfEmployee().equalsIgnoreCase("M")) {
-            System.out.println("Buying Books from publishers");
-            BuyBook buyBook = new BuyBook(publisherStock);
-            Buyer buyer = new Buyer();
-            buyer.takeOrder(buyBook);
-            buyer.placeOrders(library);
+            displayBuyBooks.buyBooks(publisherStock, library);
         } else {
             System.out.println("You cannot buy books ask the manager !!!");
         }
@@ -28,13 +24,7 @@ class BookProxy implements BookHandling {
 
     @Override
     public void sellBooks(Library library) {
-        System.out.println("Enter name of book you want to sell ");
-        title = scanner.next().toLowerCase();
-        try {
-            library.sellBook(title);
-        } catch (Exception e) {
-            System.out.println("Exception thrown"+e);
-        }
+        displayBuyBooks.sellBooks(library);
 
     }
 
@@ -45,11 +35,9 @@ class BookProxy implements BookHandling {
         printTheBooks(iteratorBooks);
     }
 
-    private void printTheBooks(Iterator iterator) {
-        while (iterator.hasNext()) {
-            BasicBook basicBook = (BasicBook) iterator.next();
-            System.out.println("Title: " + basicBook.getTitle() + " Cost: " + basicBook.getCost());
-        }
+    public void printTheBooks(Iterator iterator) {
+
+        displayBuyBooks.printTheBooks(iterator);
 
     }
 
