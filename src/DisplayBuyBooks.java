@@ -26,10 +26,7 @@ class DisplayBuyBooks implements BookHandling{
     }
 
     @Override
-    public void displayBooks(BookIterator bookIterator) {
-        System.out.println("------Printing Books-------");
-        Iterator iteratorBooks = bookIterator.createIterator();
-        printTheBooks(iteratorBooks);
+    public void displayBooks() {
     }
 
     @Override

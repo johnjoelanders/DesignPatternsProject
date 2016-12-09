@@ -26,8 +26,10 @@ class BookProxy implements BookHandling {
     }
 
     @Override
-    public void displayBooks(BookIterator bookIterator) {
-
+    public void displayBooks() {
+        System.out.println("------Printing Books-------");
+        Iterator iteratorBooks = bookIterator.createIterator();
+        printTheBooks(iteratorBooks);
     }
 
     public void printTheBooks(Iterator iterator) {
@@ -40,10 +42,10 @@ class BookProxy implements BookHandling {
     @Override
     public void addEmployee(EmployeeFactory employeeFactory, Authentication authentication) {
         if (employee.getTypeOfEmployee().equalsIgnoreCase("M")) {
-            displayBuyBooks.addEmployee(employeeFactory,authentication);
+            displayBuyBooks.addEmployee(employeeFactory, authentication);
 
         } else {
-            System.out.println("You cannot buy books ask the manager !!!");
+            System.out.println("You cannot add employees ask the manager !!!");
         }
     }
 }
