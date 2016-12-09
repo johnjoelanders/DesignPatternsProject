@@ -8,7 +8,7 @@ public class Main {
         EmployeeFactory employeeFactory = new EmployeeFactory();
         PublisherStock publisherStock = new PublisherStock();
         new OrderMore(library);
-        Authentication authentication = new Authentication();
+        Authentication authentication = Authentication.getAuthenticationInstance();
         Employee employeeLoggedIn = authentication.login();
         String choice;
         Scanner scanner = new Scanner(System.in);

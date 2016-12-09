@@ -10,8 +10,12 @@ class Authentication {
     private boolean isLoggedInAsEmployee = false;
     private boolean isLoggedInAsManager = false;
     private Employee empLoggedIn;
+    private static Authentication authenticationInstance = new Authentication();
+    static Authentication getAuthenticationInstance() {
+        return authenticationInstance;
+    }
 
-    Authentication() {
+    private Authentication() {
 
         Manager manager = new Manager("manager", "manager", "manager", "manager", 200.00, "M");
         StoreAssistant storeAssistant = new StoreAssistant("test", "test", "storeAssistant", "storeAssistant", 200.00, "S");
